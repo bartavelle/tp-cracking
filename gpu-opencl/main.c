@@ -8,17 +8,20 @@
 
 #define MAX_SOURCE_SIZE (0x100000)
 
-#define PWD_LEN 7
-
 int main(int argc, char **argv) {
-  unsigned char target = parse_hash(argv[1]);
+  if (argc != 3) {
+    fprintf(stderr, "usage: %s opencl_kernel.cl HASH\n", argv[0]);
+    exit(1);
+  }
+
+  unsigned char *target = parse_hash(argv[2]);
 
   // Load the kernel source code into the array source_str
   FILE *fp;
   char *source_str;
   size_t source_size;
 
-  fp = fopen("vector_md4_kernel.cl", "r");
+  fp = fopen(argv[1], "r");
   if (!fp) {
     fprintf(stderr, "Failed to load kernel.\n");
     exit(1);
