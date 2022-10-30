@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
 
   // Create a command queue
   cl_command_queue command_queue =
-      clCreateCommandQueue(context, device_id, 0, &ret);
+      clCreateCommandQueueWithProperties(context, device_id, NULL, &ret);
   if (ret) goto free_context;
 
   // Create memory buffers on the device for each vector
