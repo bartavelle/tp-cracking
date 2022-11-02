@@ -19,8 +19,7 @@ int hash_compare(const unsigned char *target, const char *candidate)
   ctx.hi = 0;
 
   // update
-  MD4_u32plus saved_lo;
-  unsigned long used, free;
+  unsigned long used;
 
   unsigned long size = PWD_LEN;
   const void *data = candidate;
@@ -37,6 +36,7 @@ int hash_compare(const unsigned char *target, const char *candidate)
 
   ctx.lo = PWD_LEN * 8;
   ctx.buffer[56] = ctx.lo;
+
   body(&ctx, ctx.buffer, 64);
 
   unsigned char result[16];
