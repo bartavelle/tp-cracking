@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
 
   // Copy the lists A and B to their respective memory buffers
   ret = clEnqueueWriteBuffer(command_queue, target_mem_obj, CL_TRUE, 0,
-                             sizeof(target), target, 0, NULL, NULL);
+                             16, target, 0, NULL, NULL);
   if (ret) goto free_sol_buf;
 
   // Create a program from the kernel source
