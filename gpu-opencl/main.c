@@ -3,8 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "../includes/parse.h"
 
-#include "../includes/config.h"
+#define PWD_LEN 7
 
 #define MAX_SOURCE_SIZE (0x100000)
 
