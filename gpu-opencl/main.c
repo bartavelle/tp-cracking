@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
 
   // Create memory buffers on the device for each vector
   cl_mem target_mem_obj =
-      clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(target), NULL, &ret);
+      clCreateBuffer(context, CL_MEM_READ_ONLY, 16, NULL, &ret);
   if (ret) goto free_queue;
   cl_mem solution_mem_obj =
       clCreateBuffer(context, CL_MEM_READ_ONLY, PWD_LEN, NULL, &ret);
